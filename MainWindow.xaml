@@ -1,0 +1,133 @@
+﻿<Window x:Class="Dots_and_Lines_Game.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Dots_and_Lines_Game"
+        mc:Ignorable="d"
+        Title="Dots and Lines" Height="700" Width="800">
+    <DockPanel>
+        
+        <Menu DockPanel.Dock="Top">
+            <!--Save options menu item-->
+            <MenuItem Header="Save Options">
+                <MenuItem Header="Save Game" Click="SaveGame_Click"/>
+                <MenuItem Header="Load Game" Click="LoadGame_Click"/>
+                <MenuItem Header="Restart" Click="RestartGame_Click"/>
+                <MenuItem Header="Undo Move" Click="UndoMove_Click"/>
+                <MenuItem Header="Redo Move" Click="RedoMove_Click"/>
+                <MenuItem Header="Quit" Click="QuitGame_Click"/>
+            </MenuItem>
+            
+            <!--Colour choice menu options-->
+            <MenuItem Header="Player Colour">
+                <MenuItem Header="Player 1">
+                    <MenuItem Header="Red" Click="Player1_ColorSelect" Tag="Red"/>
+                    <MenuItem Header="Yellow" Click="Player1_ColorSelect" Tag="Yellow"/>
+                    <MenuItem Header="Green" Click="Player1_ColorSelect" Tag="Green"/>
+                    <MenuItem Header="Blue" Click="Player1_ColorSelect" Tag="Blue"/>
+                    <MenuItem Header="Black" Click="Player1_ColorSelect" Tag="Black"/>
+                </MenuItem>
+                <MenuItem Header="Player 2">
+                    <MenuItem Header="Red" Click="Player2_ColorSelect" Tag="Red"/>
+                    <MenuItem Header="Yellow" Click="Player2_ColorSelect" Tag="Yellow"/>
+                    <MenuItem Header="Green" Click="Player2_ColorSelect" Tag="Green"/>
+                    <MenuItem Header="Blue" Click="Player2_ColorSelect" Tag="Blue"/>
+                    <MenuItem Header="Black" Click="Player2_ColorSelect" Tag="Black"/>
+                </MenuItem>
+            </MenuItem>
+            
+            <!--Grid size menu options-->
+            <!--To do custom grid size selection-->
+            <MenuItem Header="Grid Size">
+                <MenuItem Header="Default(2 X 2)"  Click="Grid2x2_Click"/> <!--Option to go back to the default 2 X 2 grid-->
+                <MenuItem Header="3 X 3" Click="Grid3x3_Click"/>
+                <MenuItem Header="5 X 5" Click="Grid5x5_Click"/>
+                <MenuItem Header="7 X 7" Click="Grid7x7_Click"/>
+                <MenuItem Header="Custom" Click="CustomGrid_Click"/>
+            </MenuItem>
+
+            <!--Grid shape menu options-->
+            <MenuItem Header="Grid Shape">
+                <MenuItem Header="Square" Click="SquareGrid_Click"/>
+                <MenuItem Header="Triangle" Click="TriangleGrid_Click"/>
+                <MenuItem Header="Hexagon" Click="HexagonGrid_Click"/>
+            </MenuItem>
+
+            <!--Timer menu option-->
+            <!--To do custom timer selection-->
+            <MenuItem Header="Timer">
+                <MenuItem Header="Off" Click="TimerOff_Click"/>
+                <MenuItem Header="5 seconds" Click="Timer5Seconds_Click"/>
+                <MenuItem Header="10 seconds" Click="Timer10Seconds_Click"/>
+                <MenuItem Header="15 seconds" Click="Timer15Seconds_Click"/>
+                <MenuItem Header="Custom" Click="TimerCustom_Click"/>
+            </MenuItem>
+
+            <!--Board option menu option-->
+            <MenuItem Header="Board Option">
+                <MenuItem Header="Swedish" Click="Swedish_Click"/>
+                <MenuItem Header="American" Click="American_Click"/>
+                <MenuItem Header="Icelandic" Click="Icelandic_Click"/>
+            </MenuItem>
+
+            <!--Multiplayer and bot menu-->
+            <MenuItem Header="Bot">
+                <MenuItem Header="On" Click="BotOn_Click"/>
+                <MenuItem Header="Off" Click="BotOff_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <!-- Updated player info panel -->
+        <Grid DockPanel.Dock="Top" Height="50" Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Player 1 Score -->
+            <TextBlock x:Name="player1ScoreText" 
+                  Grid.Column="0"
+                  Text="Player 1: 0"
+                  FontSize="18"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"/>
+
+            <!-- Turn Indicator and Timer-->
+            <Grid DockPanel.Dock="Top" Background="White" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="playerTurnIndicator"
+                      Grid.Row="0"
+                      Text="Player 1's Turn"
+                      FontSize="18"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"/>
+                <TextBlock x:Name="timerText"
+                      Grid.Row="1"
+                      Text="Time Left: 0"
+                      FontSize="18"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center" Width="115"/>
+            </Grid>
+            
+            <!-- Player 2 Score -->
+            <TextBlock x:Name="player2ScoreText"
+                  Grid.Column="2"
+                  Text="Player 2: 0"
+                  FontSize="18"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"/>
+        </Grid>
+
+        <!-- Grid to hold the game board -->
+        <Grid x:Name="mainGrid">
+            <Canvas x:Name="gameCanvas" Background="White"/>
+            
+        </Grid>
+
+    </DockPanel>
+</Window>
