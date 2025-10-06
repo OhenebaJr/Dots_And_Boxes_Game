@@ -7,7 +7,7 @@ A finished game with the bot.
 <img width="843" height="746" alt="Screenshot 2025-10-06 at 9 25 33 PM" src="https://github.com/user-attachments/assets/0d099056-302e-4bef-ac8f-477325f0a505" />
 
 There are options to save game, load from a saved game, restart the game, undo a move, redo a move
-and quit as well. 
+and quit as well.
 <img width="789" height="695" alt="Screenshot 2025-10-06 at 9 26 18 PM" src="https://github.com/user-attachments/assets/72a6fa08-2746-4d12-bbbd-28c4c19e02ab" />
 
 The players have the option to change their player colours.
